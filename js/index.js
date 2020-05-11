@@ -1,7 +1,6 @@
-// Draggable windows
+// DRAGGABLE WINDOWS
 (function() {
     // Make the DIV element draggable:
-    // dragElement(document.getElementById("mydiv"));
     document.querySelectorAll('.draggable-window').forEach(draggableWindowElement => {
         enableDragging( draggableWindowElement );
     });
@@ -12,13 +11,6 @@
         if (draggableWindowHeader) {
             draggableWindowHeader.onmousedown = dragMouseDown;
         }
-        // if (document.getElementById(element.id + "header")) {
-        //     // if present, the header is where you move the DIV from:
-        //     document.getElementById(element.id + "header").onmousedown = dragMouseDown;
-        // } else {
-        //     // otherwise, move the DIV from anywhere inside the DIV:
-        //     element.onmousedown = dragMouseDown;
-        // }
 
         function dragMouseDown(e) {
             e = e || window.event;
@@ -51,6 +43,12 @@
         }
     }
 })();
+
+
+
+
+
+// ZOOM
 
 (function(){
 	console.log('checkSystemRequirements');
@@ -125,7 +123,8 @@
                         apiKey: meetConfig.apiKey,
                         passWord: meetConfig.passWord,
                         success: function(res){
-                            $('#nav-tool').hide();
+                            $('#nav-tool').hide(); // Hide Login
+                            $('#draggable-window-container').show();
                             console.log('join meeting success');
                         },
                         error: function(res) {
