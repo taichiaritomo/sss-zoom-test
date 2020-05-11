@@ -1,3 +1,57 @@
+// Draggable windows
+(function() {
+    // Make the DIV element draggable:
+    // dragElement(document.getElementById("mydiv"));
+    document.querySelectorAll('.draggable-window').forEach(draggableWindowElement => {
+        enableDragging( draggableWindowElement );
+    });
+
+    function enableDragging(element) {
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        var draggableWindowHeader = element.querySelector('.draggable-window-header');
+        if (draggableWindowHeader) {
+            draggableWindowHeader.onmousedown = dragMouseDown;
+        }
+        // if (document.getElementById(element.id + "header")) {
+        //     // if present, the header is where you move the DIV from:
+        //     document.getElementById(element.id + "header").onmousedown = dragMouseDown;
+        // } else {
+        //     // otherwise, move the DIV from anywhere inside the DIV:
+        //     element.onmousedown = dragMouseDown;
+        // }
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            element.style.top = (element.offsetTop - pos2) + "px";
+            element.style.left = (element.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    }
+})();
+
 (function(){
 	console.log('checkSystemRequirements');
 	console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
@@ -55,6 +109,13 @@
 
         ZoomMtg.init({
             leaveUrl: './',
+            sharingMode: 'fit', // set to 'both' to allow 'original size' option when watching a screenshare
+            videoHeader: false, // NOT SURE WHAT THIS DOES YET
+            showMeetingHeader: false, // NOT SURE WHAT THIS DOES YET
+            disableInvite: true, // disable invite in participants screen
+            isLockBottom: false, // auto-hide footer UI (join audio, etc.)
+            isSupportChat: false, // disable chat
+            screenShare: false, // disable screenshare
             success: function () {
                 ZoomMtg.join(
                     {
