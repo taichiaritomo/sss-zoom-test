@@ -87,7 +87,8 @@
             apiSecret: API_SECRET,
             meetingNumber: 4538095026, // taichi's personal meeting room number
             userName: document.getElementById('display_name').value,
-            passWord: document.getElementById('meeting_pwd').value,
+            // passWord: document.getElementById('meeting_pwd').value,
+            passWord: 'knockknock', // taichi's personal meeting room password
             leaveUrl: "./",
             role: 0 // role: attendee
         };
