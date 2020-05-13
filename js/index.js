@@ -59,7 +59,7 @@ window.addEventListener('load', () => {
         {
             hash: 'C_pkA81d',
             username: 'username',
-            image: window.location + '/modules/chat/profile-images/sss.png',
+            image: 'https://taichi.pink/sss-zoom-test/modules/chat/profile-images/sss.png',
             callback: function() { console.log('login'); }
         }
     );
