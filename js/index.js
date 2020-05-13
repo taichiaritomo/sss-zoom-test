@@ -45,11 +45,40 @@
 })();
 
 
+// CHAT
+// setup
+// (function(g,v,w,d,s,a,b){w['rumbleTalkMessageQueueName']=g;w[g]=w[g]||
+// function(){(w[g].q=w[g].q||[]).push(arguments)};a=d.createElement(s);
+// b=d.getElementsByTagName(s)[0];a.async=1;
+// a.src='https://d1pfint8izqszg.cloudfront.net/api/'+v+'/sdk.js';
+// b.parentNode.insertBefore(a,b);})('rtmq','v1.0.0',window,document,'script');
 
+window.addEventListener('load', () => {
+    rtmq(
+        'login',
+        {
+            hash: 'C_pkA81d',
+            username: 'username',
+            image: window.location + '/modules/chat/profile-images/sss.png',
+            callback: function() { console.log('login'); }
+        }
+    );
+});
+// function loginChat(username) {
+//     // Reference: https://www.rumbletalk.com/support/API_Auto_Login/
+//     rtmq(
+//         'login',
+//         {
+//             hash: 'C_pkA81d',
+//             username: 'username',
+//             image: window.location + '/modules/chat/profile-images/sss.png',
+//             callback: function() { console.log('login'); }
+//         }
+//     );
+// }
 
 
 // ZOOM
-
 (function(){
 	console.log('checkSystemRequirements');
 	console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
@@ -127,6 +156,7 @@
                             $('#nav-tool').hide(); // Hide Login
                             $('#draggable-window-container').show();
                             console.log('join meeting success');
+                            loginChat(meetConfig.userName);
                         },
                         error: function(res) {
                             console.log(res);

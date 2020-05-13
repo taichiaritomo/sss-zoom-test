@@ -29,6 +29,16 @@
                 <iframe src="./modules/pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html"></iframe>
             </div>
         </div>
+        <div class="draggable-window" id="chat-window">
+            <div class="draggable-window-header">Chat</div>
+            <div class="draggable-window-body">
+                <div style="height: 500px;">
+                    <!-- RumbleTalk Scripts -->
+                    <script type="text/javascript">(function(g,v,w,d,s,a,b){w['rumbleTalkMessageQueueName']=g;w[g]=w[g]|| function(){(w[g].q=w[g].q||[]).push(arguments)};a=d.createElement(s); b=d.getElementsByTagName(s)[0];a.async=1; a.src='https://d1pfint8izqszg.cloudfront.net/api/'+v+'/sdk.js'; b.parentNode.insertBefore(a,b);})('rtmq','v1.0.0',window,document,'script');</script>
+                    <div id="rt-d534e3090cc27d56b7fd746d86a4afa6"></div>
+                    <script src="https://rumbletalk.com/client/?C_pkA81d"></script></div>
+            </div>
+        </div>
     </div>
 
     <nav id="nav-tool" class="navbar navbar-inverse navbar-fixed-top">
@@ -53,16 +63,17 @@
         </div>
     </nav>
 
-
+    <!-- Zoom Scripts -->
     <script src="https://source.zoom.us/1.7.7/lib/vendor/react.min.js"></script>
     <script src="https://source.zoom.us/1.7.7/lib/vendor/react-dom.min.js"></script>
     <script src="https://source.zoom.us/1.7.7/lib/vendor/redux.min.js"></script>
     <script src="https://source.zoom.us/1.7.7/lib/vendor/redux-thunk.min.js"></script>
     <script src="https://source.zoom.us/1.7.7/lib/vendor/jquery.min.js"></script>
     <script src="https://source.zoom.us/1.7.7/lib/vendor/lodash.min.js"></script>
-
     <script src="https://source.zoom.us/zoom-meeting-1.7.7.min.js"></script>
     <script src="js/tool.js"></script>
+
+    <!-- Microsite App Scripts -->
     <script src="js/index.js"></script>
 </body>
 

@@ -1,7 +1,6 @@
 #draggable-window-container {
   position: fixed;
   z-index: 10000;
-  display: none;
 }
 #draggable-window-container .draggable-window {
   position: fixed;
@@ -17,18 +16,26 @@
   background: gray;
   cursor: move;
 }
+#draggable-window-container .draggable-window .draggable-window-body {
+  width: 100%;
+  height: calc(100% - 2em);
+}
 #draggable-window-container .draggable-window#zine-window {
   width: 400px;
   height: 300px;
-}
-#draggable-window-container .draggable-window#zine-window .draggable-window-body {
-  width: 100%;
-  height: calc(100% - 2em);
+  top: 80px;
+  left: 20px;
 }
 #draggable-window-container .draggable-window#zine-window .draggable-window-body iframe {
   width: 100%;
   height: 100%;
   border: none;
+}
+#draggable-window-container .draggable-window#chat-window {
+  width: 500px;
+  height: 400px;
+  top: 80px;
+  left: 440px;
 }
 
 /*# sourceMappingURL=style.css.map */
