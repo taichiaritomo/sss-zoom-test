@@ -53,29 +53,26 @@
 // a.src='https://d1pfint8izqszg.cloudfront.net/api/'+v+'/sdk.js';
 // b.parentNode.insertBefore(a,b);})('rtmq','v1.0.0',window,document,'script');
 
-window.addEventListener('load', () => {
-    rtmq(
-        'login',
-        {
-            hash: 'C_pkA81d',
-            username: 'username',
-            image: 'https://taichi.pink/sss-zoom-test/modules/chat/profile-images/sss.png',
-            callback: function() { console.log('login'); }
-        }
-    );
-});
-// function loginChat(username) {
-//     // Reference: https://www.rumbletalk.com/support/API_Auto_Login/
-//     rtmq(
-//         'login',
-//         {
-//             hash: 'C_pkA81d',
-//             username: 'username',
-//             image: window.location + '/modules/chat/profile-images/sss.png',
-//             callback: function() { console.log('login'); }
-//         }
-//     );
-// }
+// window.addEventListener('load', () => {
+    
+// });
+
+function loginChat(username) {
+    // var password = username=='admin'?'admintest':username;
+    var loginData = {}
+    loginData.hash = 'C_pkA81d';
+    loginData.username = username;
+    loginData.callback = function() { console.log('logged in'); }
+
+    // admin
+    if (username ==='admin') {
+        loginData.password = 'sssadmin';
+    } else {
+        loginData.image = 'https://taichi.pink/sss-zoom-test/modules/chat/profile-icons/sss.png';
+    }
+
+    rtmq('login', loginData);
+}
 
 
 // ZOOM
@@ -154,7 +151,8 @@ window.addEventListener('load', () => {
                         passWord: meetConfig.passWord,
                         success: function(res){
                             $('#nav-tool').hide(); // Hide Login
-                            $('#draggable-window-container').show();
+                            // $('#draggable-window-container').show();
+                            $('#draggable-window-container').addClass('show');
                             console.log('join meeting success');
                             loginChat(meetConfig.userName);
                         },

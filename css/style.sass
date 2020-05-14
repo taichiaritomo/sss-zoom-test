@@ -1,10 +1,17 @@
 
 // DRAGGABLE WINDOWS
 $draggable-window-header_height: 2em
+
+// body
+//   background: black
 #draggable-window-container
   position: fixed
-  z-index: 10000
-  // display: none
+  visibility: hidden
+  pointer-events: none
+  &.show
+    visibility: visible
+    pointer-events: all
+    z-index: 10000
   .draggable-window
     position: fixed
     z-index: 10000

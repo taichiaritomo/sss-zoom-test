@@ -1,5 +1,11 @@
 #draggable-window-container {
   position: fixed;
+  visibility: hidden;
+  pointer-events: none;
+}
+#draggable-window-container.show {
+  visibility: visible;
+  pointer-events: all;
   z-index: 10000;
 }
 #draggable-window-container .draggable-window {
